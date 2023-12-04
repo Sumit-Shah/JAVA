@@ -340,65 +340,65 @@ public class OOPS {
         
         
         //4. Hybrid Inheritance 
-        public static void main (String args []) {
-                Dog dobby = new Dog();
-                dobby.eat();
-                dobby.legs = 4;
-                System.out.println(dobby.legs);
+//         public static void main (String args []) {
+//                 Dog dobby = new Dog();
+//                 dobby.eat();
+//                 dobby.legs = 4;
+//                 System.out.println(dobby.legs);
                 
-            }
-        }
+//             }
+//         }
         
         
         
-        //BASE CLASS
-        class Animal {
-            String color;
+//         //BASE CLASS
+//         class Animal {
+//             String color;
         
-            void eat() {
-                System.out.println("eats");
-            }
+//             void eat() {
+//                 System.out.println("eats");
+//             }
         
-            void breathe() {
-                System.out.println("breathes");
-            }
-        }
+//             void breathe() {
+//                 System.out.println("breathes");
+//             }
+//         }
         
-        class Mammal extends Animal {
-            int legs;
-        }
+//         class Mammal extends Animal {
+//             int legs;
+//         }
         
-        class Aves extends Animal {
-            int Egg;
-        }
+//         class Aves extends Animal {
+//             int Egg;
+//         }
         
-        class Reptile extends Animal {
-            int Crawl;
-        }
-        
-        
-        
-        class Dog extends Mammal {
-            String breed;
-        }
-        
-        class Mammal extends Animal {
-            void walk() {
-                System.out.println("Walks");
-            }
-        }
-        
-        class Fish extends Animal {
-            void swim() {
-                System.out.println("swim");
-            }
-        }
-        
-        class Bird extends Animal {
-            void fly() {
-                System.out.println("fly");
-            }
-        }
+//         class Reptile extends Animal {
+//             int Crawl;
+//         }
         
         
-}
+        
+//         class Dog extends Mammal {
+//             String breed;
+//         }
+        
+//         class Mammal extends Animal {
+//             void walk() {
+//                 System.out.println("Walks");
+//             }
+//         }
+        
+//         class Fish extends Animal {
+//             void swim() {
+//                 System.out.println("swim");
+//             }
+//         }
+        
+//         class Bird extends Animal {
+//             void fly() {
+//                 System.out.println("fly");
+//             }
+//         }
+        
+        
+// }

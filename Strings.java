@@ -249,36 +249,36 @@ public class Strings {
     
 
     //TRYING IT WITH THE STRING BUILDER .
-    public static String compress(String str) {
-        StringBuilder sb = new StringBuilder("");
-        char currentChar = str.charAt(0);
-        sb.append(currentChar);
-        int count = 1;
+//     public static String compress(String str) {
+//         StringBuilder sb = new StringBuilder("");
+//         char currentChar = str.charAt(0);
+//         sb.append(currentChar);
+//         int count = 1;
 
-        for(int i=1; i<str.length(); i++) {
-            if(str.charAt(i) == currentChar) {
-                count++;
-            } else {
-                if(count > 1) {
-                    sb.append(count);
-                }
+//         for(int i=1; i<str.length(); i++) {
+//             if(str.charAt(i) == currentChar) {
+//                 count++;
+//             } else {
+//                 if(count > 1) {
+//                     sb.append(count);
+//                 }
 
-            }
-            currentChar = str.charAt(i);
-            sb.append(currentChar);
-            count = 1;
-        }
-        return sb.toString();
+//             }
+//             currentChar = str.charAt(i);
+//             sb.append(currentChar);
+//             count = 1;
+//         }
+//         return sb.toString();
 
-    }    
+//     }    
         
-    public static void main(String args[]) {
-        String str = "aaabbcccdd";
-        System.out.println(compress(str));
-    }
+//     public static void main(String args[]) {
+//         String str = "aaabbcccdd";
+//         System.out.println(compress(str));
+//     }
 
 
 
 
 
-}
+// }
