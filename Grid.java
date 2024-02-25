@@ -3,7 +3,7 @@ public class Grid {
         //basae case 
         if(i == n-1 && j == m-1) { //condn for last cell
             return 1;
-        }else if(i == n || j ==n) { //boundary cross condition
+        }else if(i == n || j ==n) { //boundary cross condition 
             return 0;
         }
 
