@@ -11,6 +11,8 @@ public class LinkedList {
 
     public static Node head;
     public static Node tail;
+    public static int size;
+
 
     public void addFirst(int data) {
 
@@ -27,6 +29,7 @@ public class LinkedList {
         //Only 1 node
         //step1 = create new node
          Node newNode = new Node(data);
+         size++;
          if(head == null) {
             head = tail = newNode;
             return;
@@ -42,6 +45,7 @@ public class LinkedList {
 
     public void addLast(int data) {
         Node newNode = new Node(data);
+        size++;
         if(head == null) {
             head = tail = newNode;
             return;
@@ -52,31 +56,53 @@ public class LinkedList {
 
 
     //PRINTING THE LINKED LIST
-    public void print() {
-        if(head == null){
-            System.out.println("LL is empty.");
-            return;
-        }
+    public void print() { //O(n)
+        // if(head == null){
+        //     System.out.println("LL is empty.");
+        //     return;
+        // }
         Node temp = head;
         while (temp != null) {
-            System.out.print(temp.data + "->");
-            temp = temp.next;
-            
+            System.out.print(temp.data+"-->");
+            temp = temp.next;           
         }
         System.out.println("Null");
     }
 
+    public void add(int idx, int data) {
+        //For first
+        if(idx == 0) {
+            addFirst(data);
+            return;
+        }
+
+
+        Node newNode = new Node(data);
+        size++;
+        Node temp = head;
+        int i = 0;
+        while(i < idx-1) {
+            temp = temp.next;
+            i++;
+        }
+
+        //i = idex-1; temp -> prev
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
+      
+
     public static void main(String args[]) {
         LinkedList ll = new LinkedList();
-        ll.print();         
         ll.addFirst(2);
-        ll.print();
         ll.addFirst(1);
-        ll.print();
-        ll.addLast(3);
-        ll.print();
         ll.addLast(4);
-        ll.print();
+        ll.addLast(5);
+
+        ll.add(2, 3);
+
+        ll.print(); //1->
 
     }
 }
