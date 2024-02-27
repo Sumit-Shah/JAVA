@@ -2,7 +2,7 @@ import java.lang.reflect.Array;
 import java.util.*;
 public class PairSum {
 
-    //Brute Force 
+    // // Brute Force 
     // public static boolean PairSum1(ArrayList<Integer> list, int target) {
     //     for(int i=0; i<list.size(); i++) {
     //         for(int j=i+1; j<list.size(); j++) {
@@ -16,28 +16,30 @@ public class PairSum {
     // }
 
 
-    // //2 POINTER APPROACH
-    // public static boolean PairSum1(ArrayList<Integer> list, int target) {
-    //     int lp = 0;
-    //     int rp = list.size()-1;
+    //2 POINTER APPROACH
+    public static boolean PairSum1(ArrayList<Integer> list, int target) {
+        int lp = 0;
+        int rp = list.size()-1;
 
-    //     while (lp != rp) {
-    //         //case 1
-    //         if(list.get(lp)+list.get(rp) == target) {
-    //             return true;
-    //         }
+        while (lp != rp) {
+            //case 1
+            if(list.get(lp)+list.get(rp) == target) {
+                return true;
+            }
 
-    //         //case 2
-    //         if(list.get(lp)+list.get(rp) < target) {
-    //             lp++;
-    //         } else {
-    //             //case 3
-    //             rp--;
-    //         }
-    //     }
+            //case 2
+            if(list.get(lp)+list.get(rp) < target) {
+                lp++;
+            } else {
+                //case 3
+                rp--;
+            }
+        }
 
-    //     return false;
-    // }
+        return false;
+    }
+
+
     // public static void main(String[] args) {
     //     ArrayList<Integer> list = new ArrayList<>();
     //     //1,2, 3, 4,5 ,6 
