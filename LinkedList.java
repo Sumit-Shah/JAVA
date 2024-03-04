@@ -1,3 +1,5 @@
+import java.net.Socket;
+
 public class LinkedList {
     public static class Node {
         int data;
@@ -249,6 +251,75 @@ public class LinkedList {
         return true;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //LINKED LIST (PART-2)
+    //detect a Loop/Cycle in LL
+    public static boolean isCycle() { //Floyd's Cycle 
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next; //+1
+            fast = fast.next.next; //+2
+            if(slow == fast) {
+                return true; //cycle exist
+            }
+        }
+        return false; //Cycle doesnot exist
+    }
+
+
+
+
+    //Removing Cycle Code 
+    public static void removeCycle() {
+        //detect cycle
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow) {
+                cycle = true;
+                break;
+            }
+
+        }
+        if(cycle == false) {
+            return;
+        }
+
+        //find meeting point
+        slow = head;
+        Node prev = null; //last node
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+            
+        }
+
+        //remove cycle -> last.next = null
+        prev.next = null;
+    }
      
 
 
@@ -256,14 +327,14 @@ public class LinkedList {
         LinkedList ll = new LinkedList();
         // ll.addFirst(1);
         // ll.addFirst(2);
-        ll.addLast(1);
-        ll.addLast(2);
-        ll.addLast(2);
-        ll.addLast(1);
+        // ll.addLast(1);
+        // ll.addLast(2);
+        // ll.addLast(2);
+        // ll.addLast(1);
 
 
         // ll.add(2, 3);
-        ll.print(); // Expected: 1-->2-->3-->4-->5-->Null
+        // ll.print(); // Expected: 1-->2-->3-->4-->5-->Null
 
         // ll.removeFirst();
         // ll.print(); // Expected: 2-->3-->4-->5-->Null
@@ -289,8 +360,33 @@ public class LinkedList {
 
 
 
-        System.out.println(ll.checkPalindrome());
+        // System.out.println(ll.checkPalindrome());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //linked list part(2)
+        head = new Node(1);
+        Node temp = new Node(2);
+        head.next = temp;
+        head.next.next = new Node(3);
+        head.next.next.next = head;
+        //1->2->3->2
+        System.out.println(isCycle());
+        removeCycle();
+        System.out.println(isCycle());
 
 
     }
-}
+} 
