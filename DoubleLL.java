@@ -14,7 +14,7 @@ public class DoubleLL {
     public static Node tail;
     public static int size;
 
-    //add
+    //add First
     public void addFirst(int data) {
         Node newNode = new Node(data);
         size++;
@@ -28,6 +28,19 @@ public class DoubleLL {
         head = newNode;
     }
 
+    //Add Last
+    public void addLast(int data) {
+        Node newNode = new Node(data);
+        size++;
+        if(tail == null) {
+            tail = head = newNode;
+            return;
+        }
+
+        tail.next = newNode;
+        tail = newNode;
+    }
+
     //print
     public void print() {
         Node temp = head;
@@ -38,7 +51,76 @@ public class DoubleLL {
         System.out.println("NULL");
     }
 
-    //remove 
+
+
+    //remove  - remove last
+    public int removeLast() {
+        if(tail == null) {
+            System.out.println("DLL is empty");
+            return Integer.MIN_VALUE;
+        }
+        if(size == 1) {
+            int val = tail.data;
+            tail = head = null;
+            size--;
+            return val;
+        }
+        int val = tail.data;
+        tail = tail.prev;
+        tail.next = null;
+        size--;
+        return val;
+    }
+
+
+    //remove - removeFirst
+
+    public int removeFirst() {
+        if(head == null) {
+            System.out.println("Dll is emprty");
+            return Integer.MIN_VALUE;
+        }
+
+        if(size == 1) {
+            int val = head.data;
+            head = tail = null;
+            size--;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        head.prev = null;
+        size--;
+        return val;
+    }
+
+
+
+
+
+
+
+
+
+    //Reverse a ll
+    public void reverse() {
+        Node curr = head;
+        Node prev = null;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+
+
+            prev = curr;
+            curr = next;
+        }
+
+        head = prev;
+    }
+
 
     public static void main(String[] args) {
         DoubleLL dll = new DoubleLL();
@@ -47,8 +129,16 @@ public class DoubleLL {
         dll.addFirst(1);
 
 
+        // dll.print();
+        // System.out.println(dll.size);
+
+        // dll.removeFirst();
+        // dll.removeLast();
+        // dll.addLast(4);
         dll.print();
         System.out.println(dll.size);
+        dll.reverse();
+        dll.print();
          
     }
     
