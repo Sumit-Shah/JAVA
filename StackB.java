@@ -128,24 +128,59 @@ public class StackB {
 
 
 
+
+
+
+
+
+
+
+
     //REVERSE A STRING USING A STACK
-    public static String reverseString(String str) {
-        Stack<Character> s = new Stack<>();
-        int idx = 0;
-        while(idx < str. length()) {
-            s.push(str.charAt(idx));
-            idx++;
-        }
+    // public static String reverseString(String str) {
+    //     Stack<Character> s = new Stack<>();
+    //     int idx = 0;
+    //     while(idx < str. length()) {
+    //         s.push(str.charAt(idx));
+    //         idx++;
+    //     }
 
-        StringBuilder result = new StringBuilder("");
-        while (!s.isEmpty()) {
-            char curr = s.pop();
-            result.append(curr);
+        // StringBuilder result = new StringBuilder("");
+        // while (!s.isEmpty()) {
+        //     char curr = s.pop();
+        //     result.append(curr);
             
+        // }
+
+        // return result.toString();
+    // }
+
+
+
+
+
+
+    //REVERSE A STACK
+    
+    public static void reverseStack(Stack<Integer> s){
+        if(s.isEmpty()) {
+            return;
         }
 
-        return result.toString();
+
+        int top = s.pop();
+        reverseStack(s);
+        pushAtBottom(s, top);
     }
+
+
+    public static void printStack(Stack<Integer> s) {
+        while(s.isEmpty()) {
+            System.out.println(s.pop());
+        }
+
+    }
+
     
      
         
@@ -153,11 +188,11 @@ public class StackB {
 
     public static void main(String[] args) {
         // Stack s = new Stack();
-        // Stack<Integer> s = new Stack<>();
+        Stack<Integer> s = new Stack<>();
 
-        // s.push(1);
-        // s.push(2);
-        // s.push(3);
+        s.push(1);
+        s.push(2);
+        s.push(3);
 
         // while(!s.isEmpty()) {
         //     System.out.println(s.peek());
@@ -178,9 +213,16 @@ public class StackB {
 
 
 
-        String str = "SUMIT";
-        String result = reverseString(str);
-        System.out.println(result);
+        // String str = "SUMIT";
+        // String result = reverseString(str);
+        // System.out.println(result);
+
+
+
+
+        reverseStack(s);
+        printStack(s);
+
 
 
         
