@@ -221,7 +221,7 @@ public class StackB {
 
 
         reverseStack(s);
-        printStack(s);
+        printStack(s); 
 
 
 
