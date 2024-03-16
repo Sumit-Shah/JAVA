@@ -37,8 +37,8 @@ public class Classrooms {
 
 
 
-
-    public static boolean isDuplicate(String str) {
+    //Duplicate Pareenthesses Code 
+    public static boolean isDuplicate(String str) {  //O(n)
         Stack<Character> s = new Stack<>();
 
         for(int i=0; i<str.length(); i++) {
