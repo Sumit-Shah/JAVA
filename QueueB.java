@@ -674,9 +674,6 @@ public class QueueB {
         System.out.println(q.remove());
         System.out.println(q.remove());
         System.out.println(q.remove());
-
-
-
     }
 
 
