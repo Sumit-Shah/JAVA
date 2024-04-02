@@ -285,7 +285,7 @@ public class GreedyApproach {
         }
 
         System.out.println("Min cost of cuts = " + cost);
-    }
+    } //SPOJ
      
 
 
