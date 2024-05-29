@@ -352,6 +352,40 @@ public class heightTree {
 
         return dist1 + dist2;
     }
+
+
+
+
+
+
+
+
+
+
+    //TRANSFORM TO SUM TREE
+    public static int transform(Node root) {
+        if(root == null) {
+            return 0;
+        }
+
+        int leftChild = transform(root.left);
+        int rightChild = transform(root.right);
+
+        int data = root.data;
+
+        int newLeft = root.left == null ? 0 : root.left.data;
+        int newRight = root.right == null ? 0 : root.right.data;
+
+        root.data = newLeft + leftChild + newRight + rightChild;
+
+        return data;
+
+    }
+    public static void preorder(Node root) {
+        if(root == null) {
+            return;
+        }
+    }
     
     public static void main(String[] args) {
         /* 
@@ -359,7 +393,19 @@ public class heightTree {
          *      / \
          *    2    3 
          *   / \   / \
-         *  4   5 6   7
+         *  4   5 6   7'
+         * 
+         * 
+         * 
+         * expected summ tree is : 
+
+         * 0 0 
+         27
+       /    \
+      9      13
+     / \    /  \
+    0   0  0    0
+
          * */
 
          Node root = new Node(1);
@@ -421,10 +467,18 @@ public class heightTree {
 
 
 
-        int n1 = 4, n2 = 5;
-        System.out.println(minDist(root, n1, n2));
+        // int n1 = 4, n2 = 5;
+        // System.out.println(minDist(root, n1, n2));
+
+
+
+
+
+
+        transform(root);
+        preorder(root);
 
 
     }
 }
-  
+   
