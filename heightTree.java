@@ -377,7 +377,6 @@ public class heightTree {
         int newRight = root.right == null ? 0 : root.right.data;
 
         root.data = newLeft + leftChild + newRight + rightChild;
-
         return data;
 
     }
