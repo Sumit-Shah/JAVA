@@ -49,11 +49,11 @@ public class heapsort {
         }
     }
 
-    public static void heapSort(int arr[]) {
+    public static void heapSort(int arr[]) { //0(n*logn)
         // step 1 - build max heap
         int n = arr.length;
         for (int i = n / 2 - 1; i >= 0; i--) {
-            heapify(arr, i, n);
+            heapify(arr, i, n);  //0(n*logn)
         }
         // step 2 - push largest at end
         for (int i = n - 1; i > 0; i--) {
@@ -62,7 +62,7 @@ public class heapsort {
             arr[0] = arr[i];
             arr[i] = temp;
 
-            heapify(arr, 0, i);
+            heapify(arr, 0, i); //0(n*logn)
         }
     }
 
