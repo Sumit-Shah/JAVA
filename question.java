@@ -167,52 +167,210 @@
 
 
 
-//SLIDING WINDOWS MAXIMUM 
+// //SLIDING WINDOWS MAXIMUM 
+// import java.util.*;
+// public class question{
+//     static class Pair implements Comparable<Pair> {  //0(nlogk)
+//         int val;
+//         int idx;
+
+//         public Pair(int val, int idx) {
+//             this.val = val;
+//             this.idx = idx;
+//         }
+
+//         @Override
+//         public int compareTo(Pair p2) {
+//             //ascending
+//             // return this.val - p2.val;
+//             // descending
+//             return p2.val - this.val;
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         int arr[] = {1, 3, -1, -3, 5, 3, 6, 7};
+//         int k = 3;//window size
+//         int res[] = new int[arr.length - k + 1]; //n-k+1
+
+//         PriorityQueue<Pair> pq = new PriorityQueue<>();
+
+//         // 1st window
+//         for(int i=0; i<k; i++) {
+//             pq.add(new Pair(arr[i], i));
+//         }
+
+//         res[0] = pq.peek().val;
+
+//         for(int i=k; i<arr.length; i++) {
+//             while(pq.size() > 0 && pq.peek().idx <= (i-k)) {
+//                 pq.remove();
+//             }
+//             pq.add(new Pair(arr[i], i));
+//             res[i-k+1] = pq.peek().val;
+//         }
+
+//         //print result
+//         for(int i=0; i<res.length; i++) {
+//             System.out.println(res[i]+" ");
+//         }
+// }
+// }
+
+
+
+
+
+
+
+
+
+
+
+//HASHING 
+//MAJORITY HASHING
+// import java.util.*;
+// import java.util.HashMap;
+
+// public class question{
+//     public static void main(String[] args) {
+//         int arr[] = {1, 3, 2, 5, 1, 3, 1, 5, 1};
+//         HashMap<Integer, Integer> map = new HashMap<>();
+
+//         for(int i=0; i<arr.length; i++) {
+//             // if(map.containsKey(arr[i])) {
+//             //     map.put(arr[i], map.get(arr[i]) + 1);
+//             // } else {
+//             //     map.put(arr[i], 1);
+//             // }
+
+//             map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+//         }
+
+//         // Set<Integer> keySet = map.keySet();
+//         // for (Integer key : keySet) { 
+//         //     if(map.get(key) > arr.length/3){
+//         //         System.out.println(key);
+//         //     }
+//         // }
+
+
+//         for (Integer key : map.keySet()) { 
+//             if(map.get(key) > arr.length/3){
+//                 System.out.println(key);
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+// VALID ANAGRAM
+// import java.util.*;
+
+// public class question{
+//     public static boolean isAnagram(String s, String t) {
+//         if(s.length() != t.length()) {
+//             return false;
+//         }
+//         HashMap<Character, Integer> map = new HashMap<>();
+
+//         for(int i=0; i<s.length(); i++) {
+//             char ch = s.charAt(i);
+//             map.put(ch, map.getOrDefault(ch, 0) + 1);
+//         }
+
+//         for(int i=0; i<t.length(); i++) {
+//             char ch = t.charAt(i);
+//             if(map.get(ch) != null) {
+//                 if(map.get(ch) == 1) {
+//                     map.remove(ch);
+//                 } else {
+//                     map.put(ch, map.get(ch) -1);
+//                 }
+//             } else {
+//                 return false;
+//             }
+//         }
+//         return map.isEmpty();
+//     }
+
+//     public static void main(String[] args) {
+//         String s = "tulip"; //O(n)
+//         String t = "care";
+
+//         System.out.println(isAnagram(s, t));
+//     }
+// }
+
+
+
+
+
+
+
+
+//COUNT DISTINCT ELEMENTS
+
+// import java.util.*;
+// public class question{
+//     public static void main(String[] args) {
+//         int num[] = {4, 3, 2, 5, 6, 7, 3, 4, 2, 1};
+//         HashSet<Integer> set = new HashSet<>();
+
+
+//         for(int i=0; i<num.length; i++){
+//             set.add(num[i]);
+//         }
+
+//         System.out.println("ANS = " + set.size());
+//     }
+// }
+
+
+
+
+
+
+
+
+
+//UNION AND INTERSECTION of 2 arrays
 import java.util.*;
+
+import javax.lang.model.type.IntersectionType;
 public class question{
-    static class Pair implements Comparable<Pair> {  //0(nlogk)
-        int val;
-        int idx;
-
-        public Pair(int val, int idx) {
-            this.val = val;
-            this.idx = idx;
-        }
-
-        @Override
-        public int compareTo(Pair p2) {
-            //ascending
-            // return this.val - p2.val;
-            // descending
-            return p2.val - this.val;
-        }
-    }
-
     public static void main(String[] args) {
-        int arr[] = {1, 3, -1, -3, 5, 3, 6, 7};
-        int k = 3;//window size
-        int res[] = new int[arr.length - k + 1]; //n-k+1
+        int arr1[] = {7, 3, 9};
+        int arr2[] = {6, 3, 9, 2, 9, 4};
+        HashSet<Integer> set = new HashSet<>();
 
-        PriorityQueue<Pair> pq = new PriorityQueue<>();
-
-        // 1st window
-        for(int i=0; i<k; i++) {
-            pq.add(new Pair(arr[i], i));
+        //union
+        for(int i=0; i<arr1.length; i++) {
+            set.add(arr1[i]);
         }
 
-        res[0] = pq.peek().val;
+        for(int i=0; i<arr2.length; i++){
+            set.add(arr2[i]);
+        }
+        System.out.println("umion = " + set.size());
+    
+        // Intersection
+        set.clear();
+        for(int i=0; i<arr1.length; i++) {
+            set.add(arr1[i]);
+        }
 
-        for(int i=k; i<arr.length; i++) {
-            while(pq.size() > 0 && pq.peek().idx <= (i-k)) {
-                pq.remove();
+        int count = 0;
+        for(int i=0; i<arr2.length; i++) {
+            if(set.contains(arr2[i])) {
+                count++;
+                set.remove(arr2[i]);
             }
-            pq.add(new Pair(arr[i], i));
-            res[i-k+1] = pq.peek().val;
         }
 
-        //print result
-        for(int i=0; i<res.length; i++) {
-            System.out.println(res[i]+" ");
-        }
-}
+    
+    }
 }
